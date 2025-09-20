@@ -1,0 +1,13 @@
+
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "App Debug",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "app.py",
+      "console": "integratedTerminal"
+    }
+  ]
+}

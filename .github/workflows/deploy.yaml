@@ -1,0 +1,20 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy App Engine
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup new version on Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PRODUCTION_SERVER_HOST }}
+          username: ${{ secrets.PRODUCTION_SERVER_USERNAME }}
+          key: ${{ secrets.PRODUCTION_SERVER_SSH_KEY }}
+          script: |
+            /home/exior/code/deploy_scripts/build_deploy_app_engine

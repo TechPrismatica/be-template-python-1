@@ -1,0 +1,15 @@
+name: example-dev
+services:
+  example:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    ports:
+      - "8002:8002"
+    environment:
+      - MODULE_NAME=example
+      - BASE_PATH=/data
+      - PYTHONDONTWRITEBYTECODE=1
+    volumes:
+      - ..:/example
+      - ../data:/data
